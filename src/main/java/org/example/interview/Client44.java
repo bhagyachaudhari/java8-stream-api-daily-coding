@@ -20,6 +20,14 @@ public class Client44 {
 
         double averageSalary = employees.stream()
                 .collect(Collectors.averagingDouble(Employee::getSalary));
+        System.out.println(averageSalary);
+
+        double avgSalary = employees.stream()
+                .mapToDouble(Employee::getSalary)
+                .average()
+                        .getAsDouble();
+
+        System.out.println(avgSalary);
 
         List<Employee> output = employees.stream()
                 .filter(e -> e.getSalary() > averageSalary)
